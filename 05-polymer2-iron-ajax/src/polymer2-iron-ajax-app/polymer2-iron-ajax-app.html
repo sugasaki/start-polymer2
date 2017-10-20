@@ -1,0 +1,47 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+<dom-module id="polymer2-iron-ajax-app">
+  <template>
+
+    <!-- urlはindex.htmlからの相対パス -->
+    <iron-ajax auto url="src/properties.json" handle-as="json" last-response="{{ajaxResponse}}"></iron-ajax>
+    
+    <h2>Hello [[prop1]]!</h2>
+      
+    <h3>result</h3>
+    <pre>[[json(ajaxResponse)]]</pre>
+    
+
+    <template is="dom-repeat" items="[[ajaxResponse]]">
+      <span>[[item.name]]</span><br>
+    </template>
+
+
+</template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class Polymer2ApplicationApp extends Polymer.Element {
+      static get is() { return 'polymer2-iron-ajax-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'polymer2-iron-ajax'
+          }
+        };
+      }
+
+      json(obj) {
+        return JSON.stringify(obj, null, 2);
+      }
+
+    }
+
+    window.customElements.define(Polymer2ApplicationApp.is, Polymer2ApplicationApp);
+  </script>
+</dom-module>

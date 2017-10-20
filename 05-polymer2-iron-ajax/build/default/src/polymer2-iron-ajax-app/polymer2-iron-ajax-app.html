@@ -1,0 +1,38 @@
+<html><head><link rel="import" href="../../bower_components/polymer/polymer-element.html"><link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html"></head><body><dom-module id="polymer2-iron-ajax-app"><template><iron-ajax auto="" url="src/properties.json" handle-as="json" last-response="{{ajaxResponse}}"></iron-ajax><h2>Hello [[prop1]]!</h2><h3>result</h3><pre>[[json(ajaxResponse)]]</pre><template is="dom-repeat" items="[[ajaxResponse]]"><span>[[item.name]]</span><br></template></template><script>
+/**
+ * @customElement
+ * @polymer
+ */
+var Polymer2ApplicationApp = function (_Polymer$Element) {
+  babelHelpers.inherits(Polymer2ApplicationApp, _Polymer$Element);
+
+  function Polymer2ApplicationApp() {
+    babelHelpers.classCallCheck(this, Polymer2ApplicationApp);
+    return babelHelpers.possibleConstructorReturn(this, (Polymer2ApplicationApp.__proto__ || Object.getPrototypeOf(Polymer2ApplicationApp)).apply(this, arguments));
+  }
+
+  babelHelpers.createClass(Polymer2ApplicationApp, [{
+    key: 'json',
+    value: function json(obj) {
+      return JSON.stringify(obj, null, 2);
+    }
+  }], [{
+    key: 'is',
+    get: function get() {
+      return 'polymer2-iron-ajax-app';
+    }
+  }, {
+    key: 'properties',
+    get: function get() {
+      return {
+        prop1: {
+          type: String,
+          value: 'polymer2-iron-ajax'
+        }
+      };
+    }
+  }]);
+  return Polymer2ApplicationApp;
+}(Polymer.Element);
+
+window.customElements.define(Polymer2ApplicationApp.is, Polymer2ApplicationApp);</script></dom-module></body></html>

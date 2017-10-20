@@ -1,0 +1,6 @@
+{
+  "name": "polymer2-iron-ajax-app",
+  "short_name": "polymer2-iron-ajax",
+  "start_url": "/",
+  "display": "standalone"
+}
